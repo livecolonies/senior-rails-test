@@ -24,24 +24,37 @@ Set up a Stay model (with its table) that belongs to Studio, with a start date a
 
 Set up seeds to create studio1 and studio2, and then the following stays:
 
-- stay11: studio1, start date 01/01/2020, end date 08/01/2020
-- stay12: studio1, start date 16/01/2020, end date 24/01/2020
-- stay21: studio2, start date 05/01/2020, end date 10/01/2020
-- stay22: studio2, start date 15/01/2020, end date 20/01/2020
-- stay23: studio2, start date 21/01/2020, end date 25/01/2020
+- studio1, start date 01/01/2020, end date 08/01/2020
+- studio1, start date 16/01/2020, end date 24/01/2020
+- studio2, start date 05/01/2020, end date 10/01/2020
+- studio2, start date 15/01/2020, end date 20/01/2020
+- studio2, start date 21/01/2020, end date 25/01/2020
 
 NB: within a studio, stays can't overlap, but no need to enforce this.
 
-The residence opens on 01/01/2020, so what happens before doesn't matter.
-
 ## Question 1
 
-Implement an endpoint to which the client can post a JSON describing absences: dates between which the studio's tenant won't be there.
+Implement an endpoint that responds with a JSON description of all the absences (dates between which the studio's tenant is absent there) in the db, for all studios. An absence is a studio, a start date and an end date (not a list of dates).
 
-- absence11: studio1, start date 05/01/2020, end date 20/01/2020
-- absence21: studio2, start date 01/01/2020, end date 12/01/2020
+Here is a schematic example for one studio:
 
-We want the db to be udpated to reflect these absences.
+```
+Existing stays:             |---[--]------[-]---
+Resulting absences:         |[-]----[----]---[--
+```
+
+NB: we count days, not nights, which means if a stay ends on date X, the next absence starts on date X + 1, and vice-versa.
+
+NB2: the residence opens on 01/01/2020, so what happens before doesn't matter, an absence can start on that date at the earliest.
+
+## Question 2
+
+Implement an endpoint to which the client can post a JSON describing absences.
+
+- studio1, start date 05/01/2020, end date 20/01/2020
+- studio2, start date 01/01/2020, end date 12/01/2020
+
+We want the stays in db to be udpated to reflect these absences. We also want an appopriate response.
 
 Here is a schematic example for one studio:
 
@@ -51,15 +64,3 @@ Absences sent by client:    |-------[---]----[-]---
 Updated stays:              |---[--]------[-]---[--
 ```
 
-NB: we count days, not nights, which means if a stay ends on date X, the next absence starts on date X + 1.
-
-## Question 2
-
-Implement an endpoint that responds with a JSON description of all the absences in the db, for all studios.
-
-Here is a schematic example for one studio:
-
-```
-Existing stays:             |---[--]------[-]---[--
-Resulting absences:         |[-]----[----]---[-]---
-```
