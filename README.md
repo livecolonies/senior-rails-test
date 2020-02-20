@@ -4,7 +4,7 @@ In this test you will code imaginary features for a coliving management system.
 
 What matters is that you implement the features as if you were part of a team building a production app, keeping in mind that the code will be maintained by other people. It's not just about making it work.
 
-If you have doubts about what is asked exactly, make a decision and carry on, the details don't matter much. Don't hesitate to add comments to explain your thought process, choices, difficulties, alternative solutions etc. If you're really stuck, ping us.
+If you have doubts about what is asked exactly, make a decision and carry on, the details don't matter much. Don't hesitate to add comments to explain your thought process, choices, difficulties, alternative solutions etc. The thought process matters more than the code. If you're really stuck, ping us.
 
 You can use gems.
 
