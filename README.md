@@ -10,11 +10,9 @@ You can use gems.
 
 No need to deploy anything, your app should just run locally.
 
-When you're done, push your code to a GitHub repo and ping us!
+When you're done, push your code to a GitHub repo (don't fork this one) and ping us!
 
 ## Setup
-
-Clone the repo (don't fork it).
 
 Start a Rails app in API config, with whatever SQL db engine you want. Don't sweat the details.
 
